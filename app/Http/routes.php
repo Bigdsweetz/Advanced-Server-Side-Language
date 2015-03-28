@@ -11,7 +11,13 @@
 |
 */
 
-Route::get('/', 'WelcomeController@index');
+Route::get('/', function()
+{
+	$users = USERS::find(1);
+	return $users->UName;
+});
+
+/*Route::get('/', 'WelcomeController@index');
 
 Route::get('home', 'HomeController@index');
 
@@ -37,4 +43,4 @@ Route::get('about/{theSubject}', function($theSubject) //this makes it so that "
 Route::get('about/classes/{theSubject}', function($theSubject) //Have to use double quotes here when putting the class in the middle of a string or this will not work
 {
 	return  "Content about {$theSubject} classes goes here.";
-});
+}); */
